@@ -1,5 +1,5 @@
-{{#each controller}}
-  <div class="stage">
-    {{name}}
-  </div>
+{{#each stage in controller}}
+  {{ render "stages.stage" stage }}
 {{/each}}
+
+{{ render "stages.new" }}

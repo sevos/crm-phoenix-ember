@@ -1,3 +1,16 @@
-<h1>Simple CRM</h1>
+<nav>
+  <div class="nav-wrapper">
+    <div class="container">
+      <a href="#" class="brand-logo center">Simple CRM</a>
+      <ul id="nav-mobile" class="left">
+        {{#link-to 'stages' tagName='li'}}
+          {{#link-to 'stages'}}Overview{{/link-to}}
+        {{/link-to}}
+      </ul>
+    </div>
+  </div>
+</nav>
 
-{{outlet}}
+<div class="container">
+  {{outlet}}
+</div>
