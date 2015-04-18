@@ -3,6 +3,8 @@
 
   .stage {
     border: 1px solid silver;
+    margin-right: 5px;
+    margin-bottom: 5px;
     display: inline-block;
     padding: 5px;
 
@@ -16,7 +18,5 @@
   }
 
   .stage.new {
-    position: relative;
-    top: -23px;
   }
 }

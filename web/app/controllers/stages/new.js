@@ -4,14 +4,14 @@ export default Ember.Controller.extend({
   newObject: function() {
     return this.store.createRecord('stage');
   },
+
   model: function() {
     return this.newObject();
-  }.property('model'),
+  }.property('model', 'model.isNew'),
+
   actions: {
     submit: function() {
-      this.get('model').save().then(function(){
-        this.set('model', this.newObject());
-      });
+      this.get('model').save()
     }
   }
 });
