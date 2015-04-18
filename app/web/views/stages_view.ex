@@ -15,4 +15,7 @@ defmodule Crm.StagesView do
     %{stage: stage}
   end
 
+  def render("delete.json", %{}) do
+    %{}
+  end
 end

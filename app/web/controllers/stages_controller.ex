@@ -15,6 +15,13 @@ defmodule Crm.StagesController do
     render conn, stage: stage
   end
 
+  def delete(conn, params) do
+    query = from s in Stage, where: s.id == ^(params["id"])
+    [stage] = Repo.all(query)
+    Repo.delete stage
+    conn |> put_status(204) |> render
+  end
+
   defp atomize_keys(struct) do
     Enum.reduce struct, %{}, fn({k, v}, map) -> Map.put(map, String.to_atom(k), v) end
   end
