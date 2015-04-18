@@ -1,0 +1,10 @@
+- name: "Install environment"
+  tags: setup
+  hosts: production
+  tasks:
+    - name: "Erlang solutions key"
+      apt_key: url="http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc"
+    - name: "Erlang solutions repo"
+      apt_repository: repo="deb http://packages.erlang-solutions.com/ubuntu trusty contrib"
+    - name: "Install elixir"
+      apt: name=elixir update_cache=yes
