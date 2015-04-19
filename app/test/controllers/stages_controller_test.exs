@@ -27,4 +27,15 @@ defmodule Crm.StagesControllerTest do
     stage = Repo.get(Stage, id)
     assert stage.name == "Test stage"
   end
+
+  test "DELETE /api/stages/:id" do
+    stage =
+      %Stage{name: "Cold contact"} |>
+      Repo.insert
+
+    response = delete conn(), "/api/stages/#{stage.id}"
+
+    assert response.status == 204
+    assert Repo.get(Stage, stage.id) == nil
+  end
 end
