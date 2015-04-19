@@ -12,7 +12,7 @@ defmodule Crm.StagesController do
   def create(conn, params) do
     stage = Map.merge(%Stage{}, atomize_keys(params["stage"]))
     stage = Repo.insert(stage)
-    render conn, stage: stage
+    conn |> put_status(201) |> render stage: stage
   end
 
   def delete(conn, params) do
