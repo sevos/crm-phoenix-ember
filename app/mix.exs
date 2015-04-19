@@ -18,7 +18,7 @@ defmodule Crm.Mixfile do
   def application do
     [mod: {Crm, []},
      applications: [:phoenix, :cowboy, :logger, :ecto],
-     included_applications: [:postgrex]]
+     included_applications: [:postgrex, :phoenix_ecto]]
   end
 
   # Specifies which paths to compile per environment
