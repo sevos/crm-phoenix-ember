@@ -16,10 +16,19 @@
     - name: "Install git"
       apt: name=git-core
     - name: "Install nginx"
+      tags:
+        - setup
+        - nginx
       apt: name=nginx
     - name: "Configure nginx"
+      tags:
+        - setup
+        - nginx
       copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
     - name: "Reload nginx"
+      tags:
+        - setup
+        - nginx
       shell: "service nginx reload"
 - name: "Build frontend"
   hosts: local
