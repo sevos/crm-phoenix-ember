@@ -9,6 +9,6 @@ config :crm, Crm.Endpoint,
 # Configure your database
 config :crm, Crm.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "root",
+  password: "qwerty",
   database: "crm_prod"
