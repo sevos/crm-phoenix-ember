@@ -3,7 +3,7 @@ defmodule Crm.Mixfile do
 
   def project do
     [app: :crm,
-     version: "0.0.4",
+     version: "0.0.5",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
@@ -17,7 +17,7 @@ defmodule Crm.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Crm, []},
-     applications: [:phoenix, :cowboy, :logger, :ecto]]
+     applications: [:phoenix, :cowboy, :logger, :ecto, :postgrex]]
   end
 
   # Specifies which paths to compile per environment
