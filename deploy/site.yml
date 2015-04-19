@@ -21,6 +21,16 @@
       copy: src=files/nginx.conf dest=/etc/nginx/sites-available/default
     - name: "Reload nginx"
       shell: "service nginx reload"
+- name: "Build frontend"
+  hosts: local
+  tags:
+    - deploy
+    - frontend
+  tasks:
+    - name: "Build everything"
+      shell: ember build --environment production --output-path tmp/production-dist
+      args:
+        chdir: ../web
 - name: "Deploy"
   tags: deploy
   hosts: production
@@ -59,6 +69,8 @@
       environment: mix_env
     - name: "Create release directory"
       file: path=/app state=directory
+    - name: "Create frontend release directory"
+      file: path=/app/web state=directory
     - name: "Test if app is already running"
       shell: /app/bin/crm ping
       failed_when: False
@@ -98,5 +110,10 @@
       environment: mix_env
     - name: "Prepare release"
       shell: "mkdir -p /app/releases/{{ app_version }}; mv /build/app/rel/crm/crm-{{ app_version }}.tar.gz /app/releases/{{ app_version }}/crm.tar.gz"
+    - name: "Upload frontend assets"
+      tags:
+        - deploy
+        - frontend
+      synchronize: src=../web/tmp/production-dist/ dest=/app/web/
     - name: "Upgrade app"
       shell: /app/bin/crm upgrade "{{ app_version }}"
