@@ -1,2 +1,5 @@
 [production]
 46.101.172.51
+
+[local]
+127.0.0.1 ansible_connection=local ansible_python_interpreter=/usr/local/bin/python
