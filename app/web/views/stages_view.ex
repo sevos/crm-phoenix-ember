@@ -2,7 +2,7 @@ defmodule Crm.StagesView do
   use Crm.Web, :view
 
   def render("index.json", %{stages: stages}) do
-    %{stages: stages, meta: %{test_hot_deploy: 1}}
+    %{stages: stages}
   end
 
 
