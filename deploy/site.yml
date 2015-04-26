@@ -1,5 +1,6 @@
 - name: "Install environment"
   tags: setup
+  sudo: yes
   hosts: production
   tasks:
     - name: "Erlang solutions key"
